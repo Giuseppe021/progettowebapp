@@ -1,66 +1,220 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Centro Vendita e Riparazioni Informatiche — Web App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Web application per la gestione di un centro di vendita e riparazioni informatiche, realizzata con Laravel (PHP), HTML, CSS e JavaScript.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Indice
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Descrizione del progetto](#descrizione-del-progetto)
+- [Livelli di accesso](#livelli-di-accesso)
+- [Tecnologie utilizzate](#tecnologie-utilizzate)
+- [Struttura del progetto](#struttura-del-progetto)
+- [Schema del database](#schema-del-database)
+- [Installazione e configurazione](#installazione-e-configurazione)
+- [Credenziali di test](#credenziali-di-test)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Descrizione del progetto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Questa web app simula il portale online di un centro specializzato nella vendita di dispositivi e accessori informatici e nell'offerta di servizi di riparazione. L'applicazione è strutturata su quattro livelli di accesso che determinano quali funzionalità sono disponibili per ciascun tipo di utente.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Livelli di accesso
 
-## Laravel Sponsors
+### 👤 Utente non registrato (ospite)
+- Visualizza la home page con i prodotti in evidenza.
+- Naviga il catalogo completo dei prodotti.
+- Vede il nome e l'immagine dei prodotti, ma **non** il prezzo né i dettagli completi.
+- Non può aggiungere prodotti al carrello, visualizzare il profilo o controllare lo stato delle riparazioni.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🔐 Utente registrato
+- Accede a tutte le funzionalità dell'ospite, più:
+- Visualizza il **prezzo** e i dettagli completi di ogni prodotto.
+- Aggiunge e rimuove prodotti dal **carrello** personale (con gestione delle quantità).
+- Visualizza e modifica il proprio **profilo utente** (nome, cognome, username, email).
+- Controlla lo **stato delle proprie riparazioni** (es. "In Attesa", "In Lavorazione", "Completato").
 
-### Premium Partners
+### 🛠️ Admin (impiegato)
+- Accede a tutte le funzionalità dell'utente registrato, più:
+- Carica, modifica e rimuove **prodotti** dal catalogo (nome, descrizione, prezzo, immagine).
+- Aggiunge nuove **riparazioni** associate a un utente esistente (descrizione, stato, data di inizio, data stimata di completamento).
+- Aggiorna lo **stato** di una riparazione in corso.
+- Rimuove riparazioni dal sistema.
+- Visualizza la lista completa di tutte le riparazioni presenti nel sistema.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 👑 Superadmin (capo)
+- Accede a tutte le funzionalità dell'admin, più:
+- **Registra nuovi utenti** con qualsiasi ruolo (user, admin, superadmin) direttamente dal pannello di registrazione.
+- Modifica il **ruolo** di un utente esistente (es. promuovere un utente a admin).
+- Rimuove utenti dal sistema.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Tecnologie utilizzate
 
-## Code of Conduct
+| Tecnologia | Utilizzo |
+|---|---|
+| **PHP 8.2** | Logica server-side |
+| **Laravel 11** | Framework MVC, routing, ORM Eloquent, gestione sessioni |
+| **MySQL / MariaDB** | Database relazionale |
+| **HTML5** | Struttura delle pagine (Blade templates) |
+| **CSS3** | Stile e layout |
+| **JavaScript** | Interattività lato client, chiamate AJAX alle API REST |
+| **Vite** | Bundling degli asset front-end |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Struttura del progetto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+progettowebapp/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── LoginController.php    # Registrazione, login, logout
+│   │       ├── HomeController.php     # Home page, catalogo prodotti, ricerca
+│   │       ├── CartController.php     # Gestione carrello
+│   │       ├── RepairController.php   # Gestione riparazioni
+│   │       └── UserController.php     # Profilo utente
+│   └── Models/
+│       ├── User.php
+│       ├── Product.php
+│       ├── Cart.php
+│       └── Repair.php
+├── resources/
+│   └── views/                         # Template Blade
+│       ├── layout.blade.php           # Layout base (navbar, footer)
+│       ├── home.blade.php             # Home page con prodotti in evidenza
+│       ├── allproducts.blade.php      # Catalogo completo prodotti
+│       ├── product.blade.php          # Dettaglio singolo prodotto
+│       ├── cart.blade.php             # Carrello utente
+│       ├── repairstatus.blade.php     # Stato riparazioni
+│       ├── profile.blade.php          # Profilo utente
+│       ├── login.blade.php            # Form di login
+│       └── register.blade.php         # Form di registrazione
+├── routes/
+│   └── web.php                        # Definizione di tutte le rotte
+├── database/
+│   └── migrations/                    # Migrazioni Laravel
+├── progettowebapp.sql                 # Dump SQL con struttura e dati di esempio
+└── .env.example                       # Template variabili d'ambiente
+```
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Schema del database
+
+### `users`
+| Campo | Tipo | Descrizione |
+|---|---|---|
+| `id` | int | Chiave primaria |
+| `name` | varchar | Nome |
+| `surname` | varchar | Cognome |
+| `username` | varchar | Username univoco |
+| `email` | varchar | Email univoca |
+| `password` | varchar | Password hash (bcrypt) |
+| `role` | varchar | Ruolo: `user`, `admin`, `superadmin` |
+
+### `products`
+| Campo | Tipo | Descrizione |
+|---|---|---|
+| `id` | int | Chiave primaria |
+| `name` | varchar | Nome del prodotto |
+| `description` | text | Descrizione |
+| `price` | decimal | Prezzo |
+| `image_url` | text | URL dell'immagine |
+
+### `carts`
+| Campo | Tipo | Descrizione |
+|---|---|---|
+| `id` | int | Chiave primaria |
+| `user_id` | int | FK → users.id |
+| `product_id` | int | FK → products.id |
+| `quantity` | int | Quantità del prodotto nel carrello |
+
+### `repairs`
+| Campo | Tipo | Descrizione |
+|---|---|---|
+| `id` | int | Chiave primaria |
+| `description` | text | Descrizione del problema |
+| `status` | varchar | Stato (es. "In Attesa", "In Lavorazione", "Completato") |
+| `start_date` | date | Data di inizio riparazione |
+| `estimated_completion` | date | Data stimata di completamento |
+| `user_id` | int | FK → users.id |
+
+---
+
+## Installazione e configurazione
+
+### Prerequisiti
+- PHP >= 8.2
+- Composer
+- Node.js e npm
+- MySQL o MariaDB
+
+### Passaggi
+
+1. **Clona il repository:**
+   ```bash
+   git clone https://github.com/Giuseppe021/progettowebapp.git
+   cd progettowebapp
+   ```
+
+2. **Installa le dipendenze PHP:**
+   ```bash
+   composer install
+   ```
+
+3. **Installa le dipendenze JavaScript:**
+   ```bash
+   npm install
+   ```
+
+4. **Configura le variabili d'ambiente:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+   Modifica il file `.env` impostando i parametri del database:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=progettowebapp
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+5. **Crea il database e importa i dati di esempio:**
+   ```bash
+   mysql -u root -p -e "CREATE DATABASE progettowebapp CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+   mysql -u root -p progettowebapp < progettowebapp.sql
+   ```
+
+6. **Compila gli asset front-end:**
+   ```bash
+   npm run build
+   ```
+
+7. **Avvia il server di sviluppo:**
+   ```bash
+   php artisan serve
+   ```
+   L'applicazione sarà disponibile all'indirizzo [http://localhost:8000](http://localhost:8000).
+
+---
+
+## Credenziali di test
+
+Le seguenti credenziali sono disponibili nel dump SQL di esempio:
+
+| Username | Ruolo |
+|---|---|
+| `admin` | superadmin |
+| `peppe` | admin |
+| `paippo` | user |
+
+> **Nota:** Le password nel dump SQL sono in formato bcrypt. Per effettuare il login con uno degli utenti di esempio è necessario conoscere la password in chiaro corrispondente, oppure è possibile creare un nuovo utente tramite la pagina di registrazione (`/register`).

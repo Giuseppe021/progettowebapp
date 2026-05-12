@@ -5,12 +5,7 @@
         <script src="{{ url('js/uploadproduct.js') }}" defer></script>
         <script src="{{ url('js/hw1.js') }}" defer></script>
         <script> const userId = "{{ Session::get('user_id') }}"; </script>
-        <link rel="preconnect" href="{{ url('https://fonts.googleapis.com') }}">
-        <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}" crossorigin>
-        <link href="{{ url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap') }}" rel="stylesheet">
-        <link href="{{ url('https://fonts.googleapis.com/icon?family=Material+Icons') }}" rel="stylesheet">
-        <script src="{{ url('https://maps.googleapis.com/maps/api/js?key=AIzaSyDbPWqruBWLrugkLvFOVfPgcz6Tp5FxBFQ&callback=console.debug&libraries=maps,marker&v=beta') }}"></script>
-        <title>Click Atenea</title>
+       <title>Click Atenea</title>
     @endsection
 @endsection
 

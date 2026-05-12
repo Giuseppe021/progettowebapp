@@ -48,12 +48,3 @@ Il database `progettowebapp` è composto dalle seguenti entità principali:
 - `repairs`: Log dei ticket di assistenza tecnica legati agli account utente.
 
 ---
-
-## Installazione
-
-Per eseguire il progetto in locale, segui questi passaggi:
-
-1. **Clonazione del Repository:**
-   ```bash
-   git clone [https://github.com/Giuseppe021/progettowebapp.git](https://github.com/Giuseppe021/progettowebapp.git)
-   cd progettowebapp

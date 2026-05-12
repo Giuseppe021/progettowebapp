@@ -1,0 +1,153 @@
+.repairStatus {
+    padding: 20px;
+}
+
+.repair-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.repair-item h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.repair-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.optionAdmin {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.content {
+    flex: 1;
+    margin-bottom: 80px;
+    padding-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.add-container-repair {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-container-repair {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container-repair input {
+    width: 250px;
+    height: 35px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-container-repair button {
+    height: 35px;
+    padding: 5px 20px;
+    background-color: #2fb5d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container-repair button:hover {
+    background-color: #239bb0;
+}
+
+.add-btn-container {
+    display: flex;
+    align-items: center;;
+    margin-bottom: 20px;
+}
+
+#add-btn {
+    padding: 10px 20px;
+    background-color: #2fb5d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-btn:hover {
+    background-color: #239bb0;
+}
+
+.add-repair {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.add-repair form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-repair .repair-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-repair .repair-card {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    min-width: 300px;
+}
+
+.add-repair .repair-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-repair .repair-info div {
+    margin-bottom: 10px;
+}
+
+.add-repair label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.add-repair input, .add-repair select, .add-repair textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-repair button.uploadRepair {
+    padding: 10px 20px;
+    background-color: #2fb5d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.add-repair button.uploadRepair:hover {
+    background-color: #239bb0;
+}
